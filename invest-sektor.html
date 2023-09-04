@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Si Investa</title>
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="152x152" type="image/png" href="assets/img/brand/icon-gradient.png">
+	<link rel="icon" type="image/png" sizes="152x152" href="assets/img/brand/icon-gradient.png">
+	<link rel="icon" type="image/x-icon" href="assets/img/brand/icon-gradient.png" />
+	<!-- css -->
+	<link href="assets/css/bootstrap-custom.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/img/brand/logo-color.png" alt="" width="100px">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav m-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Profil
+							</a>
+							<ul class="dropdown-menu">
+								<!-- <li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li> -->
+								<li><a class="dropdown-item" href="#">Kota pekalongan</a></li>
+								<li><a class="dropdown-item" href="#">Pemerintahan</a></li>
+								<li><a class="dropdown-item" href="#">Penduduk dan Ketanagakerjaan</a></li>
+								<li><a class="dropdown-item" href="#">UMK dan Ketanaga kerja</a></li>
+								<li><a class="dropdown-item" href="#">Sosial dan Ekonomi</a></li>
+								<li><a class="dropdown-item" href="#">Infrastruktur Sarana dan Prasarana</a></li>
+								<li><a class="dropdown-item" href="#">Pertanian</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">profil Investasi</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="peta.html">Peta</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Investasi
+							</a>
+							<ul class="dropdown-menu">
+								<li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li>
+								<li><a class="dropdown-item" href="#">Sektor</a></li>
+								<li><a class="dropdown-item" href="#">Lokasi</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="peta.html">Kontak</a>
+						</li>
+					</ul>
+					<button class="m-1 btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-globe-americas"></i></button>
+					<button class="m-1 btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+					<button class="m-1 btn btn-sm btn-primary" type="submit"><i class="bi bi-person"></i> Login</button>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<section id="top" class="bg-gradient">
+		<div class="container">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#" class="link-dark">Home</a></li>
+					<li class="breadcrumb-item">Investasi</li>
+					<li class="breadcrumb-item active" aria-current="page">Sektor</li>
+				</ol>
+			</nav>
+			<h1>Daftar Investasi Kota Pekalongan</h1>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="d-flex align-items-center justify-content-between">
+				<b>Berdasarkan Sektor :</b>
+				<form action="">
+					<div class="input-group mb-3">
+					<input type="text" name="cari" id="cari" class="form-control border-primary" placeholder="Cari Potensi Investasi Disini!">
+					  <button class="btn btn-outline-primary" type="button" id="button-addon2">Telusuri</button>
+
+				</div>
+				</form>
+			</div>
+			<hr>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Semua Sektor</a>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Pertanian</a>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Peternakan & Perikanan</a>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Pariwisata</a>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Industri</a>
+			<a href="#" class="m-1 btn btn-sm btn-outline-primary">Dagang & Jasa</a>
+
+			<div class="row mt-5">
+				<div class="col-sm-6 col-md-4 col-lg-3 py-2">
+					<div class="card">
+						<img src="https://images.unsplash.com/photo-1587391028604-b370121a40f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="" class="card-img-top">
+						<div class="card-body">
+							<h5>Pengembangan Perikanan di Desa Pasir Sari</h5>
+							<p class="text-secondary">PERIKANAN</p>
+							<a href="#" class="btn btn-primary"><i class="me-2 bi bi-file-richtext"></i> Selengkapnya</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 py-2">
+					<div class="card">
+						<img src="https://images.unsplash.com/photo-1609407683391-7d127a00b3e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhdGlrfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" class="card-img-top">
+						<div class="card-body">
+							<h5>Pengembangan Industri Batik di Desa Podosugih</h5>
+							<p class="text-secondary">INDUSTRI</p>
+							<a href="#" class="btn btn-primary"><i class="me-2 bi bi-file-richtext"></i> Selengkapnya</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 py-2">
+					<div class="card">
+						<img src="https://images.unsplash.com/photo-1609407683391-7d127a00b3e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhdGlrfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" class="card-img-top">
+						<div class="card-body">
+							<h5>Pengembangan Industri Batik di Desa Podosugih</h5>
+							<p class="text-secondary">INDUSTRI</p>
+							<a href="#" class="btn btn-primary"><i class="me-2 bi bi-file-richtext"></i> Selengkapnya</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 py-2">
+					<div class="card">
+						<img src="https://images.unsplash.com/photo-1609407683391-7d127a00b3e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhdGlrfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" class="card-img-top">
+						<div class="card-body">
+							<h5>Pengembangan Industri Batik di Desa Podosugih</h5>
+							<p class="text-secondary">INDUSTRI</p>
+							<a href="#" class="btn btn-primary"><i class="me-2 bi bi-file-richtext"></i> Selengkapnya</a>
+						</div>
+					</div>
+				</div>
+				<nav aria-label="Page navigation example" class="mt-4">
+					<ul class="pagination justify-content-center">
+						<li class="page-item">
+							<a class="page-link" href="#" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item active"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+	<footer class="py-5 bg-dark text-white">
+		<div class="container">
+			<div class="row flex-column-reverse flex-md-row ">
+				<div class="col-md-6 py-3 text-center text-md-start">
+					<img src="assets/img/brand/logo-white.png" class="mb-3" alt="logo" width="200px">
+					<p>Sistem Informasi Investasi Kota Pekalongan</p>
+					<div class="d-flex mt-5 justify-content-center justify-content-md-start">
+						<a href="#" class="fs-5 me-3 bi bi-facebook"></a>
+						<a href="#" class="fs-5 me-3 bi bi-instagram"></a>
+						<a href="#" class="fs-5 me-3 bi bi-youtube"></a>
+						<a href="#" class="fs-5 me-3 bi bi-twitter"></a>
+					</div>
+				</div>
+				<div class="col-md-6 py-3">
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Alamat : Jl. Jaksa Agung R. Soeprapto No. 1 Podosugih, Pekalongan Barat, Kota Pekalongan</p>
+					</div>
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Telepon : 0285 - 432086</p>
+					</div>
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Email : oss@pekalongankota.go.id</p>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="text-center">
+				<small>Hak Cipta © 2023 - DPMPTSP Kota Pekalongan</small>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

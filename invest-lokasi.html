@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Si Investa</title>
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="152x152" type="image/png" href="assets/img/brand/icon-gradient.png">
+	<link rel="icon" type="image/png" sizes="152x152" href="assets/img/brand/icon-gradient.png">
+	<link rel="icon" type="image/x-icon" href="assets/img/brand/icon-gradient.png" />
+	<!-- css -->
+	<link href="assets/css/bootstrap-custom.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	
+	<!-- leaftlet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/img/brand/logo-color.png" alt="" width="100px">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav m-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Profil
+							</a>
+							<ul class="dropdown-menu">
+								<!-- <li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li> -->
+								<li><a class="dropdown-item" href="#">Kota pekalongan</a></li>
+								<li><a class="dropdown-item" href="#">Pemerintahan</a></li>
+								<li><a class="dropdown-item" href="#">Penduduk dan Ketanagakerjaan</a></li>
+								<li><a class="dropdown-item" href="#">UMK dan Ketanaga kerja</a></li>
+								<li><a class="dropdown-item" href="#">Sosial dan Ekonomi</a></li>
+								<li><a class="dropdown-item" href="#">Infrastruktur Sarana dan Prasarana</a></li>
+								<li><a class="dropdown-item" href="#">Pertanian</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">profil Investasi</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="peta.html">Peta</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Investasi
+							</a>
+							<ul class="dropdown-menu">
+								<li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li>
+								<li><a class="dropdown-item" href="#">Sektor</a></li>
+								<li><a class="dropdown-item" href="#">Lokasi</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="peta.html">Kontak</a>
+						</li>
+					</ul>
+					<button class="m-1 btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-globe-americas"></i></button>
+					<button class="m-1 btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+					<button class="m-1 btn btn-sm btn-primary" type="submit"><i class="bi bi-person"></i> Login</button>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<section id="top" class="bg-gradient">
+		<div class="container">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#" class="link-dark">Home</a></li>
+					<li class="breadcrumb-item">Investasi</li>
+					<li class="breadcrumb-item active" aria-current="page">Lokasi</li>
+				</ol>
+			</nav>
+			<h1>Daftar Investasi Kota Pekalongan</h1>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<b>Berdasarkan Kecamatan :</b>
+			<a href="#" class="m-1 btn btn-outline-primary">Kecamatan Pekalongan Barat</a>
+			<a href="#" class="m-1 btn btn-outline-primary">Kecamatan Pekalongan Utara</a>
+			<a href="#" class="m-1 btn btn-outline-primary">Kecamatan Pekalongan Selatan</a>
+			<a href="#" class="m-1 btn btn-outline-primary">Kecamatan Pekalongan Timur</a>
+			<div id="map" class="mt-5 rounded-4 shadow" style="height: 400px;"></div>
+		</div>
+		<script>
+			var map = L.map('map').setView([-6.897628, 109.662813], 13);
+			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '© DPMPTSP'
+			}).addTo(map);
+			var marker = L.marker([-6.897628, 109.662813]).addTo(map);
+			L.marker([-6.894496, 109.653920]).addTo(map);
+			// marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+		</script>
+	</section>
+	<footer class="py-5 bg-dark text-white">
+		<div class="container">
+			<div class="row flex-column-reverse flex-md-row ">
+				<div class="col-md-6 py-3 text-center text-md-start">
+					<img src="assets/img/brand/logo-white.png" class="mb-3" alt="logo" width="200px">
+					<p>Sistem Informasi Investasi Kota Pekalongan</p>
+					<div class="d-flex mt-5 justify-content-center justify-content-md-start">
+						<a href="#" class="fs-5 me-3 bi bi-facebook"></a>
+						<a href="#" class="fs-5 me-3 bi bi-instagram"></a>
+						<a href="#" class="fs-5 me-3 bi bi-youtube"></a>
+						<a href="#" class="fs-5 me-3 bi bi-twitter"></a>
+					</div>
+				</div>
+				<div class="col-md-6 py-3">
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Alamat : Jl. Jaksa Agung R. Soeprapto No. 1 Podosugih, Pekalongan Barat, Kota Pekalongan</p>
+					</div>
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Telepon : 0285 - 432086</p>
+					</div>
+					<div class="d-flex">
+						<i class="bi bi-chevron-right me-2"></i>
+						<p>Email : oss@pekalongankota.go.id</p>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="text-center">
+				<small>Hak Cipta © 2023 - DPMPTSP Kota Pekalongan</small>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script>
+		// Layer Groups
+		// var littleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+		// denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+		// aurora    = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+		// golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+		// var cities = L.layerGroup([littleton, denver, aurora, golden]);
+		// // Layers Control
+		// var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		// 	maxZoom: 19,
+		// 	attribution: '© OpenStreetMap'
+		// });
+
+		// var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
+
+		// var map = L.map('map', {
+		// 	center: [39.73, -104.99],
+		// 	zoom: 10,
+		// 	layers: [osm, cities]
+		// });
+		// var baseMaps = {
+		// 	"OpenStreetMap": osm,
+		// 	"Mapbox Streets": streets
+		// };
+
+		// var overlayMaps = {
+		// 	"Cities": cities
+		// };
+		// var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+		// var baseMaps = {
+		// 	"<span style='color: gray'>Grayscale</span>": grayscale,
+		// 	"Streets": streets
+		// };
+		// var crownHill = L.marker([39.75, -105.09]).bindPopup('This is Crown Hill Park.'),
+		// rubyHill = L.marker([39.68, -105.00]).bindPopup('This is Ruby Hill Park.');
+
+		// var parks = L.layerGroup([crownHill, rubyHill]);
+		// var satellite = L.tileLayer(mapboxUrl, {id: 'MapID', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
+
+		// layerControl.addBaseLayer(satellite, "Satellite");
+		// layerControl.addOverlay(parks, "Parks");
+	</script>
+</body>
+</html>

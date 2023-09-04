@@ -1,0 +1,40 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+section {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+img.object-fit {
+	object-fit: cover;
+}
+.fit-center {
+	object-position: center;
+}
+
+img.filter-dark {
+	filter: brightness(0.5);
+}
+
+.animated {
+	animation: motion 50s infinite;
+}
+
+@keyframes motion {
+	0% {
+		object-position: top;
+	}
+	50% {
+		object-position: bottom;
+	}
+	100% {
+		object-position: top;
+	}
+}
+.swiper-pagination-bullet-active-main {
+	background: var(--bs-primary) !important;
+}
+.bg-gradient {
+	background: linear-gradient(-10deg, var(--bs-primary), #ffea3f) !important;
+/*	background: #fa9c4c;*/
+}
