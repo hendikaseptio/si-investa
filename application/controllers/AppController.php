@@ -11,4 +11,66 @@ class AppController extends CI_Controller {
 		$this->parser->parse('app/template_app', $content);
 		// $this->load->view('app/home');
 	}
+	public function investasi($kategori)
+	{
+        $this->load->model("m_potensi");
+        $this->load->library('pagination');
+
+		$config['base_url'] = site_url('investasi/sektor');
+		$config['total_rows'] = count($this->m_potensi->get_data_potensi());
+		$config['per_page'] = 4;
+		$config['page_query_string'] = TRUE;
+		$config['full_tag_open'] = '<nav aria-label="Page navigation example" class="mt-4">
+					<ul class="pagination justify-content-center">';
+		$config['full_tag_close'] = '</ul></nav>';
+
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_link'] = 'Terakhir';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['prev_tag_open'] = '<li class="page-item">';
+		$config['prev_tag_close'] = '</li>';
+
+		$config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link link-dark">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['attributes'] = array('class' => 'page-link');
+
+		$this->pagination->initialize($config);
+
+		$data['pagination'] = $this->pagination->create_links();
+
+		if($kategori == 'sektor') {
+			$limit = $config['per_page'];
+			$offset = html_escape($this->input->get('per_page'));
+			$data["sektor"] = $this->db->get("mst_sektor")->result();
+			$data['data'] = $this->m_potensi->get_data_potensi_limit($limit,$offset);
+			$content = [
+				'title' => "Investasi By Sektor",
+				'contents' => $this->load->view('app/investasi_sektor',$data, true)
+			];
+			$this->parser->parse('app/template_app', $content);
+		} else {
+			$data['kecamatan'] = $this->db->get("mst_kecamatan")->result();
+			$data['data'] = $this->m_potensi->get_data_potensi();
+			$content = [
+				'title' => "Investasi By Lokasi",
+				'contents' => $this->load->view('app/investasi_lokasi',$data, true)
+			];
+			$this->parser->parse('app/template_app', $content);
+		}
+	}
+	public function detail($slug)
+	{
+        $this->load->model("m_potensi");
+
+		$data["data"] = $this->m_potensi->get_potensi_by_slug($slug);
+		$content = [
+			'title' => $slug,
+			'contents' => $this->load->view('app/detail_potensi',$data, true)
+		];
+		$this->parser->parse('app/template_app', $content);
+	}
 }

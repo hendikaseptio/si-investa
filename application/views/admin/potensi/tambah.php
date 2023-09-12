@@ -68,18 +68,12 @@
 					</div>
 					<div class="mb-3">
 						<label for="status">Status Penawaran <small class="sup text-danger">*</small></label>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="siap" value="belum">
-							<label class="form-check-label" for="siap">
-								Siap Ditawarkan
-							</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="belum" value="siap">
-							<label class="form-check-label" for="belum">
-								Belum Siap Ditawarkan
-							</label>
-						</div>
+						<br>
+						<input type="radio" class="btn-check" name="status" value="siap" id="siap" autocomplete="off" checked>
+						<label class="btn btn-outline-primary" for="siap">Siap Ditawarkan</label>
+
+						<input type="radio" class="btn-check" name="status" value="belum" id="belum" autocomplete="off">
+						<label class="btn btn-outline-primary" for="belum">Belum Siap</label>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
@@ -127,6 +121,7 @@
 	</div>
 </section>
 <script type="text/javascript" src="<?= site_url("assets/js/plugins/select2.min.js")?>"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 <script>
 	foto1.onchange = evt => {
 		const [file] = foto1.files
@@ -175,4 +170,19 @@
 		})
 		$('.select2').select2();
 	});
+	ClassicEditor
+	.create( document.querySelector( '#detail_proyek' ) )
+	.catch( error => {
+		console.error( error );
+	} );
+	ClassicEditor
+	.create( document.querySelector( '#kondisi_eksisting' ) )
+	.catch( error => {
+		console.error( error );
+	} );
+	ClassicEditor
+	.create( document.querySelector( '#peluang_investasi' ) )
+	.catch( error => {
+		console.error( error );
+	} );
 </script>

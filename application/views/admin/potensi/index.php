@@ -72,8 +72,8 @@
 							<td><?= $r->status ?></td>
 							<td><b><?= $r->kecamatan ?></b><br><?= $r->kelurahan ?></td>
 							<td class="no-wrap">
-								<a href="<?= site_url("admin/potensi/edit/".$r->id)?>" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i> Edit </a>
-								<a href="<?= site_url("admin/potensi/hapus/".$r->id)?>" class="btn btn-sm btn-outline-primary"><i class="bi bi-trash"></i> Hapus</a>
+								<a href="<?= site_url("admin/potensi/edit/".$r->id)?>" class="m-1 btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i> Edit </a>
+								<a href="<?= site_url("admin/potensi/hapus/".$r->id)?>" class="m-1 btn btn-sm btn-outline-primary"><i class="bi bi-trash"></i> Hapus</a>
 							</td>
 						</tr>
 					<?php } ?>

@@ -16,7 +16,7 @@
 						<select name="sektor" id="sektor" class="form-control ">
 							<option value="" selected disabled>-- Pilih Sektor --</option>
 							<?php foreach ($sektor as $s) { ?>
-								<option value="<?= $s->id ?>" <?= ($data['sektor'] == $s->id)?"selected":"" ?> ><?= $s->nama ?></option>
+								<option value="<?= $s->id ?>" <?= ($data['sektor'] == $s->nama)?"selected":"" ?> ><?= $s->nama ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -37,7 +37,7 @@
 						<select name="kecamatan" id="kecamatan" class="form-control ">
 							<option value="" selected disabled>-- Pilih Kecamatan --</option>
 							<?php foreach ($kecamatan as $row) { ?>
-								<option value="<?= $row->id ?>" <?= ($data['kecamatan'] == $row->id)?"selected":"" ?> ><?= $row->nama ?></option>
+								<option value="<?= $row->id ?>" <?= ($data['kecamatan'] == $row->nama)?"selected":"" ?> ><?= $row->nama ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -46,7 +46,7 @@
 						<select name="kelurahan" id="kelurahan" class="form-control ">
 							<option value="" selected disabled>-- Pilih Kelurahan --</option>
 							<?php foreach ($kelurahan as $row) { ?>
-								<option value="<?= $row->id ?>" <?= ($data['kelurahan'] == $row->id)?"selected":"" ?>><?= $row->nama ?></option>
+								<option value="<?= $row->id ?>" <?= ($data['kelurahan'] == $row->nama)?"selected":"" ?>><?= $row->nama ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -68,18 +68,12 @@
 					</div>
 					<div class="mb-3">
 						<label for="status">Status Penawaran <small class="sup text-danger">*</small></label>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="siap" value="siap" <?= ($data['status'] == "siap")?"checked":"" ?>>
-							<label class="form-check-label" for="siap">
-								Siap Ditawarkan
-							</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="belum" value="belum" <?= ($data['status'] == "belum")?"checked":"" ?>>
-							<label class="form-check-label" for="belum">
-								Belum Siap Ditawarkan
-							</label>
-						</div>
+						<br>
+						<input type="radio" class="btn-check" name="status" value="siap" id="siap" autocomplete="off" checked>
+						<label class="btn btn-outline-primary" for="siap">Siap Ditawarkan</label>
+
+						<input type="radio" class="btn-check" name="status" value="belum" id="belum" autocomplete="off">
+						<label class="btn btn-outline-primary" for="belum">Belum Siap</label>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
@@ -113,13 +107,13 @@
 						</div>
 						<div class="col-md-6">
 							<div class="mb-3">
-								<label for="">Video</label>
+								<label for="video">Video</label>
 								<input type="file" name="video" id="video" class="form-control"  accept=".mp4">
 							</div>
-							<video width="100%" height="auto" autoplay><source src="<?= (!empty($data['video']))? site_url('assets/foto/'.$data['video']):"#" ?>" id="prevVid" type="video/mp4"></video> 
-							<div class="mb-3">
-								<button type="submit" class="btn btn-primary"><i class="bi bi-save me-2"></i>Simpan</button>
-							</div>
+							<video width="100%" height="auto" autoplay><source src="<?= (!empty($data['video']))? site_url('assets/video/'.$data['video']):"#" ?>" id="prevVid" type="video/mp4"></video> 
+						</div>
+						<div class="mb-3">
+							<button type="submit" class="btn btn-primary"><i class="bi bi-save me-2"></i>Simpan</button>
 						</div>
 					</form>
 				</div>
@@ -128,6 +122,7 @@
 	</div>
 </section>
 <script type="text/javascript" src="<?= site_url("assets/js/plugins/select2.min.js")?>"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 <script>
 	foto1.onchange = evt => {
 		const [file] = foto1.files
@@ -176,4 +171,19 @@
 		})
 		$('.select2').select2();
 	});
+	ClassicEditor
+	.create( document.querySelector( '#detail_proyek' ) )
+	.catch( error => {
+		console.error( error );
+	} );
+	ClassicEditor
+	.create( document.querySelector( '#kondisi_eksisting' ) )
+	.catch( error => {
+		console.error( error );
+	} );
+	ClassicEditor
+	.create( document.querySelector( '#peluang_investasi' ) )
+	.catch( error => {
+		console.error( error );
+	} );
 </script>

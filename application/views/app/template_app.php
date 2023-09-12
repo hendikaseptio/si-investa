@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/png" sizes="152x152" href="<?= site_url()?>assets/img/brand/icon-gradient.png">
 	<link rel="icon" type="image/x-icon" href="<?= site_url()?>assets/img/brand/icon-gradient.png" />
 	<!-- css -->
-	<link href="<?= site_url('assets/css/bootstrap-custom.css')?>" rel="stylesheet">
+	<link href="<?= site_url('assets/css/vendors/bootstrap-custom.css')?>" rel="stylesheet">
 	<link href="<?= site_url('assets/css/app.css')?>" rel="stylesheet">
 	<link rel="stylesheet" href="<?= site_url('assets/css/plugins/swiper-bundle.min.css')?>" />
 	<link rel="stylesheet" href="<?= site_url('assets/font/bootstrap-icons.min.css')?>">
@@ -30,7 +30,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+							<a class="nav-link active" aria-current="page" href="<?= site_url()?>">Home</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,8 +58,8 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li>
-								<li><a class="dropdown-item" href="#">Sektor</a></li>
-								<li><a class="dropdown-item" href="#">Lokasi</a></li>
+								<li><a class="dropdown-item" href="<?= site_url('investasi/sektor')?>">Sektor</a></li>
+								<li><a class="dropdown-item" href="<?= site_url('investasi/lokasi')?>">Lokasi</a></li>
 							</ul>
 						</li>
 						<li class="nav-item">

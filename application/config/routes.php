@@ -54,6 +54,10 @@ $route['default_controller'] = 'AppController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// app
+$route['investasi/(:any)'] = 'AppController/investasi/$1';
+$route['detail/(:any)'] = 'AppController/detail/$1';
+
 
 // Authentication
 $route['login'] = 'AuthController/index';

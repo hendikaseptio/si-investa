@@ -2,9 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Potensi extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        $this->load->model("m_potensi");
+    }
 	public function index()
 	{
-		$data["data"] = $this->db->get("potensi")->result();
+		$data["data"] = $this->m_potensi->get_data_potensi();
 		$content = [
 			'title' => "Data Potensi",
 			'contents' => $this->load->view('admin/potensi/index',$data, true)
@@ -64,23 +68,35 @@ class Potensi extends CI_Controller {
 			for ($i=1; $i <= 4 ; $i++) { 
 				$foto[$i] = $_FILES['foto'.$i];
 
-				if (!empty($foto[$i])) {
+				if (!empty($foto[$i]["name"])) {
 					if ($this->security->xss_clean($foto[$i], TRUE) === FALSE){
 						$this->session->set_flashdata('error', "File mengandung script yang membahayakan sistem");
-						$this->tambah();
+						$data["sektor"] = $this->db->get("mst_sektor")->result();
+						$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
+						$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
+						$content = [
+							'title' => "Tambah Data Potensi",
+							'contents' => $this->load->view('admin/potensi/tambah',$data, true)
+						];
+						$this->parser->parse('admin/template_admin', $content);
 					} else {
-						$new_name = $data["slug"].$i;
 						$config['upload_path']          = './assets/foto/';
-						$config['allowed_types']        = 'gif|jpg|png|jpeg|webp|avi|mp4'; 
+						$config['allowed_types']        = 'gif|jpg|png|jpeg|webp|avi'; 
 						$config['max_size']             = 10000;
 						$config['encrypt_name'] 		= TRUE;
-						$config['file_name'] = 			$new_name;
 						$this->load->library('upload', $config);
 
 						if (!$this->upload->do_upload('foto'.$i)){
 							$error = array('error' => $this->upload->display_errors());
 							$this->session->set_flashdata('error', $error['error']);
-							$this->tambah();
+							$data["sektor"] = $this->db->get("mst_sektor")->result();
+							$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
+							$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
+							$content = [
+								'title' => "Tambah Data Potensi",
+								'contents' => $this->load->view('admin/potensi/tambah',$data, true)
+							];
+							$this->parser->parse('admin/template_admin', $content);
 						} else {
 							array_push($list_foto, $this->upload->data('file_name'));
 						}
@@ -93,25 +109,36 @@ class Potensi extends CI_Controller {
 			if (!empty($video)) {
 				if ($this->security->xss_clean($video, TRUE) === FALSE){
 					$this->session->set_flashdata('error', "File mengandung script yang membahayakan sistem");
-					$this->tambah();
+					$data["sektor"] = $this->db->get("mst_sektor")->result();
+					$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
+					$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
+					$content = [
+						'title' => "Tambah Data Potensi",
+						'contents' => $this->load->view('admin/potensi/tambah',$data, true)
+					];
+					$this->parser->parse('admin/template_admin', $content);
 				} else {
-					$new_name = $data["slug"];
-					$config['upload_path']          = './assets/video/';
-					$config['allowed_types']        = 'avi|mp4'; 
-					$config['encrypt_name'] 		= TRUE;
-					$config['max_size']             = 10000;
-					$config['file_name'] 			= $new_name;
-					$this->load->library('upload', $config);
+					$configVid['upload_path']          = './assets/video/';
+					$configVid['allowed_types']        = 'avi|mp4'; 
+					$configVid['encrypt_name'] 		   = TRUE;
+					$configVid['max_size']             = 10000;
+					$this->load->library('upload', $configVid);
 					if (!$this->upload->do_upload('video')){
 						$error = array('error' => $this->upload->display_errors());
-						$this->tambah();
+						$data["sektor"] = $this->db->get("mst_sektor")->result();
+						$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
+						$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
+						$content = [
+							'title' => "Tambah Data Potensi",
+							'contents' => $this->load->view('admin/potensi/tambah',$data, true)
+						];
+						$this->parser->parse('admin/template_admin', $content);
 					} else {
 						$data["video"] =  $this->upload->data('file_name');
 					}
 				}
 			}
-			// $data = $this->security->xss_clean($data);
-			$this->db->insert("potensi",$data);
+			$this->m_potensi->insert_potensi($data);
 			$this->session->set_flashdata('sukses', "Data berhasil ditambah");
 			return redirect('admin/potensi'); 
 		}
@@ -121,7 +148,7 @@ class Potensi extends CI_Controller {
 		$data["sektor"] = $this->db->get("mst_sektor")->result();
 		$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
 		$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
-		$data["data"] = $this->db->get_where("potensi",["id" => $id])->row_array();
+		$data["data"] = $this->m_potensi->get_potensi($id);
 		$content = [
 			'title' => "Edit Potensi",
 			'contents' => $this->load->view('admin/potensi/edit',$data, true)
@@ -171,14 +198,13 @@ class Potensi extends CI_Controller {
 				"kondisi_eksisting" => $this->input->post('kondisi_eksisting'),
 				"peluang_investasi" => $this->input->post('peluang_investasi'),
 				"status" => $this->input->post('status'),
-				"created_at" => date("Y-m-d H:i:s"),
-				"user_id" => 1,
+				"updated_at" => date("Y-m-d H:i:s"),
 			];
 			$list_foto = array();
 			for ($i=1; $i <= 4 ; $i++) { 
 				$foto[$i] = $_FILES['foto'.$i];
 
-				if (!empty($foto[$i])) {
+				if (!empty($foto[$i]["name"])) {
 					if ($this->security->xss_clean($foto[$i], TRUE) === FALSE){
 						$this->session->set_flashdata('error', "File mengandung script yang membahayakan sistem");
 						$data["sektor"] = $this->db->get("mst_sektor")->result();
@@ -191,12 +217,10 @@ class Potensi extends CI_Controller {
 						];
 						$this->parser->parse('admin/template_admin', $content);
 					} else {
-						$new_name = $input["slug"].$i;
 						$config['upload_path']          = './assets/foto/';
-						$config['allowed_types']        = 'gif|jpg|png|jpeg|webp|avi|mp4'; 
+						$config['allowed_types']        = 'gif|jpg|png|jpeg|webp|avi'; 
 						$config['max_size']             = 10000;
 						$config['encrypt_name'] 		= TRUE;
-						$config['file_name'] = 			$new_name;
 						$this->load->library('upload', $config);
 
 						if (!$this->upload->do_upload('foto'.$i)){
@@ -222,7 +246,7 @@ class Potensi extends CI_Controller {
 			}
 
 			$video = $_FILES['video'];
-			if (!empty($video)) {
+			if (!empty($video['name'])) {
 				if ($this->security->xss_clean($video, TRUE) === FALSE){
 					$this->session->set_flashdata('error', "File mengandung script yang membahayakan sistem");
 					$data["sektor"] = $this->db->get("mst_sektor")->result();
@@ -235,30 +259,38 @@ class Potensi extends CI_Controller {
 					];
 					$this->parser->parse('admin/template_admin', $content);
 				} else {
-					$new_name = $input["slug"];
-					$config['upload_path']          = './assets/video/';
-					$config['allowed_types']        = 'avi|mp4'; 
-					$config['encrypt_name'] 		= TRUE;
-					$config['max_size']             = 10000;
-					$config['file_name'] 			= $new_name;
-					$this->load->library('upload', $config);
+					$configVid['upload_path']   = './assets/video/';
+					$configVid['allowed_types'] = 'avi|mp4'; 
+					$configVid['encrypt_name']	= TRUE;
+					$configVid['max_size']      = 1000000;
+					$this->load->library('upload', $configVid);
 					if (!$this->upload->do_upload('video')){
 						$error = array('error' => $this->upload->display_errors());
-						$this->tambah();
+						$this->session->set_flashdata('error', $error['error']);
+							$data["sektor"] = $this->db->get("mst_sektor")->result();
+							$data["kelurahan"] = $this->db->get("mst_kelurahan")->result();
+							$data["kecamatan"] = $this->db->get("mst_kecamatan")->result();
+							$data["data"] = $this->db->get_where("potensi",["id" => $id])->row_array();
+							$content = [
+								'title' => "Edit Potensi",
+								'contents' => $this->load->view('admin/potensi/edit',$data, true)
+							];
+							$this->parser->parse('admin/template_admin', $content);
 					} else {
 						$input["video"] =  $this->upload->data('file_name');
 					}
 				}
 			}
-			// $data = $this->security->xss_clean($data);
-			$this->db->update("potensi",$input,["id" => $id]);
-			$this->session->set_flashdata('sukses', "Data berhasil simpan");
+			$this->m_potensi->update_potensi($input,$id);
+			$this->session->set_flashdata('sukses', "Data berhasil diupdate");
 			return redirect('admin/potensi'); 
 		}
 	}
 	public function hapus($id)
 	{
-		// code...
+		$this->m_potensi->delete_potensi($id);
+		$this->session->set_flashdata('sukses', "Data berhasil dihapus");
+		return redirect('admin/potensi'); 
 	}
 	public function get_kel()
 	{
