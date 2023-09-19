@@ -1,3 +1,5 @@
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 	<section id="top" class="p-0">
 		<div class="container"></div>
 		<!-- swipper -->
@@ -136,7 +138,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63375.297537856655!2d109.63330343830009!3d-6.8958550217823475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70242ca490fe13%3A0xc0c68a126b258cb6!2sPekalongan%2C%20Kota%20Pekalongan%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1693212542997!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="shadow rounded-4 mb-3"></iframe>
+					<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63375.297537856655!2d109.63330343830009!3d-6.8958550217823475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70242ca490fe13%3A0xc0c68a126b258cb6!2sPekalongan%2C%20Kota%20Pekalongan%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1693212542997!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="shadow rounded-4 mb-3"></iframe> -->
+					<div id="map" class="rounded-4 shadow" style="height: 400px;"></div>
 				</div>
 				<div class="col-md-6">
 					<h2>Cari Peluang Investasi Kini Lebih Mudah Dengan Peta Potensi Investasi</h2>
@@ -162,3 +165,14 @@
 	</section>
 	<script src="<?= site_url('assets/js/plugins/swiper-bundle.min.js')?>"></script>
 	<script src="<?= site_url('assets/js/home.js')?>"></script>
+	<script>
+		var map = L.map('map').setView([-6.897628, 109.662813], 13);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '© DPMPTSP'
+		}).addTo(map);
+		<?php foreach ($data as $r) { $foto = explode(",",$r->foto); ?>
+			var marker = L.marker([<?= $r->latitude ?>, <?= $r->longtitude?>]).addTo(map);
+			marker.bindPopup("<img src='<?= site_url('assets/foto/'.$foto[0]) ?>' class='card-img-top mb-3 rounded-3 shadow'><table class='table'><tr><td>Nama Proyek</td><td>:</td><td><?= $r->nama ?></td></tr><tr><td>sektor</td><td>:</td><td><?= $r->sektor ?></td></tr><tr><td>Status</td><td>:</td><td><?= $r->status ?></td></tr><tr><td>Kelurahan</td><td>:</td><td><?= $r->kelurahan ?></td></tr><tr><td>Kecamatan</td><td>:</td><td><?= $r->kecamatan ?></td></tr></table><div class='mt-3 d-grid'><a href='<?= site_url('detail/'.$r->slug) ?>' class='w-auto btn btn-primary link-dark'>Selengkapnya</a></div>");
+		<?php } ?>
+	</script>

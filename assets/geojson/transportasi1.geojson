@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "transportasi1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 12, "NAMOBJ": "Terminal Penumpang Tipe A", "ORDE01": 1, "ORDE02": 2, "ORDE03": 1, "ORDE04": 2, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.687757095000052, -6.86294053599994 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "NAMOBJ": "Terminal Barang", "ORDE01": 1, "ORDE02": 3, "ORDE03": 5, "ORDE04": 5, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.689115150000077, -6.86173793599994 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "NAMOBJ": "Pelabuhan Pengumpan Regional", "ORDE01": 4, "ORDE02": 13, "ORDE03": 23, "ORDE04": 24, "JNSRSR": 2, "STSJRN": 3, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.671718120000037, -6.858424470999978 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "NAMOBJ": "Stasiun Penumpang", "ORDE01": 2, "ORDE02": 6, "ORDE03": 8, "ORDE04": 9, "JNSRSR": 2, "STSJRN": 1, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.664117034000071, -6.889401445999965 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "NAMOBJ": "Terminal Penumpang Tipe C", "ORDE01": 1, "ORDE02": 2, "ORDE03": 1, "ORDE04": 4, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.700937758000066, -6.903070279999952 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 17, "NAMOBJ": "Terminal Penumpang Tipe A", "ORDE01": 1, "ORDE02": 2, "ORDE03": 1, "ORDE04": 2, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.687757095000052, -6.86294053599994 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 18, "NAMOBJ": "Terminal Barang", "ORDE01": 1, "ORDE02": 3, "ORDE03": 5, "ORDE04": 5, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.689115150000077, -6.86173793599994 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 19, "NAMOBJ": "Pelabuhan Pengumpan Regional", "ORDE01": 4, "ORDE02": 13, "ORDE03": 23, "ORDE04": 24, "JNSRSR": 2, "STSJRN": 3, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.671718120000037, -6.858424470999978 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 20, "NAMOBJ": "Stasiun Penumpang", "ORDE01": 2, "ORDE02": 6, "ORDE03": 8, "ORDE04": 9, "JNSRSR": 2, "STSJRN": 1, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.664117034000071, -6.889401445999965 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 21, "NAMOBJ": "Terminal Penumpang Tipe C", "ORDE01": 1, "ORDE02": 2, "ORDE03": 1, "ORDE04": 4, "JNSRSR": 2, "STSJRN": 2, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.700937758000066, -6.903070279999952 ] } }
+]
+}

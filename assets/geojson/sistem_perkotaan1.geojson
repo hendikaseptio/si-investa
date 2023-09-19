@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "sistem_perkotaan1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "NAMOBJ": "Pusat Pelayanan Kota", "ORDE01": 1, "ORDE02": 1, "ORDE03": 1, "ORDE04": 1, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.676217613000063, -6.890654714999926 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "NAMOBJ": "Subpusat Pelayanan Kota", "ORDE01": 2, "ORDE02": 2, "ORDE03": 2, "ORDE04": 2, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.649279140000033, -6.889965367999935 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "NAMOBJ": "Subpusat Pelayanan Kota", "ORDE01": 2, "ORDE02": 2, "ORDE03": 2, "ORDE04": 2, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.689235602000053, -6.863477219999936 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "NAMOBJ": "Subpusat Pelayanan Kota", "ORDE01": 2, "ORDE02": 2, "ORDE03": 2, "ORDE04": 2, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.699633547000076, -6.903856188999953 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "NAMOBJ": "Subpusat Pelayanan Kota", "ORDE01": 2, "ORDE02": 2, "ORDE03": 2, "ORDE04": 2, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.658148717000074, -6.917992424999966 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.66971174300005, -6.85854756599997 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.702266196000039, -6.867240179999953 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.679432587000065, -6.927871422999942 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.693530893000059, -6.930191397999977 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.645775111000034, -6.911096222999959 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 17, "NAMOBJ": "Pusat Lingkungan", "ORDE01": 3, "ORDE02": 3, "ORDE03": 3, "ORDE04": 3, "JNSRSR": 1, "STSJRN": 3, "SBDATA": "Hasil Analisis Tim Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.701740034000068, -6.890394912999966 ] } }
+]
+}

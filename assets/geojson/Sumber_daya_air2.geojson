@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Sumber_daya_air2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "NAMOBJ": "Air Permukaan", "ORDE01": 4, "ORDE02": 3, "ORDE03": 5, "ORDE04": 5, "JNSRSR": 5, "JSSJSR": 0, "STSJRN": 3, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.666076583000063, -6.864415158999975 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "NAMOBJ": "Air Permukaan", "ORDE01": 4, "ORDE02": 3, "ORDE03": 5, "ORDE04": 5, "JNSRSR": 5, "JSSJSR": 0, "STSJRN": 3, "SBDATA": "Hasil Analisis Revisi RTRW Kota Pekalongan,2018" }, "geometry": { "type": "Point", "coordinates": [ 109.667142503000036, -6.859163079999973 ] } }
+]
+}

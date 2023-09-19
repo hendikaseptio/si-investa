@@ -4,9 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AppController extends CI_Controller {
 	public function index()
 	{
+		$this->load->model("m_profil");
+		$this->load->model("m_potensi");
+		$data['data'] = $this->m_potensi->get_data_potensi();
+		$data["menu"] = $this->m_profil->get_data_profil();
 		$content = [
 			'title' => "Beranda",
-			'contents' => $this->load->view('app/home','', true)
+			'contents' => $this->load->view('app/home',$data, true)
 		];
 		$this->parser->parse('app/template_app', $content);
 		// $this->load->view('app/home');
@@ -14,6 +18,7 @@ class AppController extends CI_Controller {
 	public function investasi($kategori)
 	{
         $this->load->model("m_potensi");
+		$this->load->model("m_profil");
         $this->load->library('pagination');
 
 		$config['base_url'] = site_url('investasi/sektor');
@@ -46,6 +51,7 @@ class AppController extends CI_Controller {
 			$limit = $config['per_page'];
 			$offset = html_escape($this->input->get('per_page'));
 			$data["sektor"] = $this->db->get("mst_sektor")->result();
+			$data["menu"] = $this->m_profil->get_data_profil();
 			$data['data'] = $this->m_potensi->get_data_potensi_limit($limit,$offset);
 			$content = [
 				'title' => "Investasi By Sektor",
@@ -55,6 +61,7 @@ class AppController extends CI_Controller {
 		} else {
 			$data['kecamatan'] = $this->db->get("mst_kecamatan")->result();
 			$data['data'] = $this->m_potensi->get_data_potensi();
+			$data["menu"] = $this->m_profil->get_data_profil();
 			$content = [
 				'title' => "Investasi By Lokasi",
 				'contents' => $this->load->view('app/investasi_lokasi',$data, true)
@@ -65,12 +72,35 @@ class AppController extends CI_Controller {
 	public function detail($slug)
 	{
         $this->load->model("m_potensi");
+		$this->load->model("m_profil");
 
 		$data["data"] = $this->m_potensi->get_potensi_by_slug($slug);
+		$data["menu"] = $this->m_profil->get_data_profil();
 		$content = [
 			'title' => $slug,
 			'contents' => $this->load->view('app/detail_potensi',$data, true)
 		];
 		$this->parser->parse('app/template_app', $content);
+	}
+	public function profil($slug)
+	{
+		$this->load->model("m_profil");
+
+		$data["data"] = $this->m_profil->get_profil_by_slug($slug);
+		$data["menu"] = $this->m_profil->get_data_profil();
+		// var_dump($data);die;
+		$content = [
+			'title' => $slug,
+			'contents' => $this->load->view('app/profil',$data, true)
+		];
+		$this->parser->parse('app/template_app', $content);
+	}
+	public function peta()
+	{
+		$this->load->model("m_potensi");
+		$data['data'] = $this->m_potensi->get_data_potensi();
+		$data['siap'] = $this->m_potensi->get_potensi_by_status("siap");
+		$data['belum'] = $this->m_potensi->get_potensi_by_status("belum");
+		$this->load->view('app/peta',$data);
 	}
 }

@@ -52,6 +52,15 @@ class M_potensi extends CI_Model {
 		->where('potensi.id',$id)
 		->get()->row_array();
 	}
+	public function get_potensi_by_status($status) {
+		return $this->db->select('potensi.*, mst_sektor.nama as sektor, mst_kecamatan.nama as kecamatan, mst_kelurahan.nama as kelurahan')
+		->from('potensi')
+		->join('mst_sektor','potensi.sektor = mst_sektor.id')
+		->join('mst_kecamatan','potensi.kecamatan = mst_kecamatan.id')
+		->join('mst_kelurahan','potensi.kelurahan = mst_kelurahan.id')
+		->where('potensi.status',$status)
+		->get()->result();
+	}
 	public function get_potensi_by_slug($slug)
 	{
 		return $this->db->select('potensi.*, mst_sektor.nama as sektor, mst_kecamatan.nama as kecamatan, mst_kelurahan.nama as kelurahan')
