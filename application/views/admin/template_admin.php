@@ -33,15 +33,21 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= site_url('admin/potensi')?>" class="nav-link <?= ($page == "investasi")?'active':'' ?> text-white">
+					<a href="<?= site_url('admin/potensi')?>" class="nav-link <?= ($page == "potensi")?'active':'' ?> text-white">
 						<i class="bi bi-database"></i>
 						<span>Data Potensi Investasi</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= site_url('admin/pages')?>" class="nav-link <?= ($page == "rekap")?'active':'' ?> text-white">
-						<i class="bi bi-file-earmark-spreadsheet"></i>
-						<span>Page</span>
+					<a href="<?= site_url('admin/profil')?>" class="nav-link <?= ($page == "profil")?'active':'' ?> text-white">
+						<i class="bi bi-buildings"></i>
+						<span>Profil</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?= site_url('admin/kategori')?>" class="nav-link <?= ($page == "kategori")?'active':'' ?> text-white">
+						<i class="bi bi-tags"></i>
+						<span>Master Kategori</span>
 					</a>
 				</li>
 			</ul>
@@ -64,8 +70,6 @@
 					<div class="container-fluid">
 						<div class="w-100 d-flex justify-content-between align-items-center">
 							<button type="button" class="btn p-0 me-auto fs-3"><i class="bi bi-list"></i></button>
-
-							
 						</div>
 					</div>
 				</nav>
