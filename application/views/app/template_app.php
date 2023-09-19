@@ -32,25 +32,29 @@
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="<?= site_url()?>">Home</a>
 						</li>
+						<?php if ($menu != NULL) { ?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Profil
 							</a>
 							<ul class="dropdown-menu">
+								<?php foreach ($menu as $r) { ?>
+									<li><a class="dropdown-item" href="<?= site_url('profil/').$r->slug ?>"><?= $r->judul ?></a></li>
+								<?php } ?>
 								<!-- <li><h6 class="dropdown-header">Investasi Bedasarkan</h6></li> -->
-								<li><a class="dropdown-item" href="#">Kota pekalongan</a></li>
-								<li><a class="dropdown-item" href="#">Pemerintahan</a></li>
+								<!-- <li><a class="dropdown-item" href="#">Pemerintahan</a></li>
 								<li><a class="dropdown-item" href="#">Penduduk dan Ketanagakerjaan</a></li>
 								<li><a class="dropdown-item" href="#">UMK dan Ketanaga kerja</a></li>
 								<li><a class="dropdown-item" href="#">Sosial dan Ekonomi</a></li>
 								<li><a class="dropdown-item" href="#">Infrastruktur Sarana dan Prasarana</a></li>
 								<li><a class="dropdown-item" href="#">Pertanian</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">profil Investasi</a></li>
+								<li><a class="dropdown-item" href="#">profil Investasi</a></li> -->
 							</ul>
 						</li>
+						<?php } ?>
 						<li class="nav-item">
-							<a class="nav-link" href="peta.html">Peta</a>
+							<a class="nav-link" href="<?= site_url('peta') ?>">Peta</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

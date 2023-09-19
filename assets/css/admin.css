@@ -3,8 +3,12 @@
 	font-family: 'Montserrat', sans-serif;
 }
 .nav-pills .nav-item .nav-link.active {
-	color: var(--bs-white);
+	color: var(--bs-dark)!important;
 	border-radius: 0;
+}
+
+.paginate_button.page-item.active a {
+	color: var(--bs-dark)!important;
 }
 
 #wrapper {

@@ -57,6 +57,8 @@ $route['translate_uri_dashes'] = FALSE;
 // app
 $route['investasi/(:any)'] = 'AppController/investasi/$1';
 $route['detail/(:any)'] = 'AppController/detail/$1';
+$route['profil/(:any)'] = 'AppController/profil/$1';
+$route['peta'] = 'AppController/peta';
 
 
 // Authentication
@@ -71,3 +73,5 @@ $route['admin/investasi'] = 'admin/InvestasiController/index';
 $route['admin/detail_proses'] = 'admin/InvestasiController/detail_proses';
 $route['admin/simpan_respon'] = 'admin/InvestasiController/simpan_respon';
 $route['admin/rekap_aduan'] = 'admin/InvestasiController/index';
+
+$route['admin/profil'] = 'admin/Profil/index';
